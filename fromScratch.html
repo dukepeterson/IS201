@@ -3,9 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Scratch Page</title>
+
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="css/mystyles.css">
 </head>
+
 <body>
-    
+
+<div class="nav-links">
+    <a href="index.html">Back to Resume</a>
+    <a href="ai.html">🎮 Surf Trivia Game</a>
+</div>
+
+    <h1 id="top">Best Surf Spots in the World</h1>
+
+    <!-- DIV 1 -->
+    <div class="section">
+        <h2>A Masterclass in finding the best waves</h2>
+        <p>Let's dive in</p>
+
+        <!-- Ordered list with unordered inside -->
+        <ol>
+            <li> Highest Performance Waves
+                <ul>
+                    <li>Banzai Pipeline, Hawaii</li>
+                    <li>Teahupoo, Tahiti</li>
+                    <li>Jeffrey's Bay, South Africa</li>
+                </ul>
+           
+                <li> Biggest Waves
+                     <ul>
+                        <li>Nazare, Portugal</li> 
+                        <li>Jaws, Hawaii</li>
+                        <li>Mavericks, California</li>
+                     </ul>
+
+                 </li>
+
+            
+                <li> Best waves to learn on
+                    <ul>
+                        <li>Nosara, Costa Rica</li>
+                        <li>Waikiki, Hawaii</li>
+                        <li>Byron Bay, Australia</li>
+                    </ul>
+                </li>
+
+            </li>
+            
+        </ol>
+    </div>
+
+    <!-- DIV 2 -->
+<div class="section">
+    <h2>Photos</h2>
+
+    <div class="photo-grid">
+
+        <div class="photo-item">
+            <h3>Pipeline (Hawaii)</h3>
+            <img src="assets/img/Pipeline.webp">
+        </div>
+
+        <div class="photo-item">
+            <h3>Teahupoo (Tahiti)</h3>
+            <img src="assets/img/Chopu.jpeg">
+        </div>
+
+        <div class="photo-item">
+            <h3>Jeffrey's Bay (South Africa)</h3>
+            <img src="assets/img/JBay.jpg">
+        </div>
+
+        <div class="photo-item">
+            <h3>Nazare (Portugal)</h3>
+            <img src="assets/img/Nazare.avif">
+        </div>
+
+        <div class="photo-item">
+            <h3>Jaws (Hawaii)</h3>
+            <img src="assets/img/Jaws.jpg">
+        </div>
+
+        <div class="photo-item">
+            <h3>Mavericks (California)</h3>
+            <img src="assets/img/Mavericks.jpeg">
+        </div>
+
+        <div class="photo-item">
+            <h3>Nosara (Costa Rica)</h3>
+            <img src="assets/img/Nosara.jpg">
+        </div>
+
+        <div class="photo-item">
+            <h3>Waikiki (Hawaii)</h3>
+            <img src="assets/img/Waikiki.jpeg">
+        </div>
+
+        <div class="photo-item">
+            <h3>Byron Bay (Australia)</h3>
+            <img src="assets/img/ByronBay.jpg">
+        </div>
+
+    </div>
+</div>
+    <!-- DIV 3 -->
+    <div class="section">
+        <h2>Presenting one of the best surfers in the world: John John Florence</h2>
+
+        <!-- YouTube embed -->
+        <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/sX-KDxOimNs?si=EFbTdqFt6zxw_wNF" 
+        title="YouTube video player" 
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+    </div>
+
+    <!-- On-page anchor -->
+    <p><a href="#top">Back to Top</a></p>
+
+    <!-- Tableau Embed -->
+    <div class="section">
+        <h2>Surfing World Champion Tableau Graph</h2>
+
+        <!-- Replace this with a real Tableau embed later -->
+<div class='tableauPlaceholder' id='viz1776270312391' 
+style='position: relative'><noscript><a href='#'>
+    <img alt='Surfing World Champ Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurfingWorldChamps&#47;SurfingWorldChampDashboard&#47;1_rss.png'
+     style='border: none' /></a></noscript>
+     <object class='tableauViz'  style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+        <param name='embed_code_version' value='3' /> 
+        <param name='site_root' value='' /><param name='name' value='SurfingWorldChamps&#47;SurfingWorldChampDashboard' />
+        <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurfingWorldChamps&#47;SurfingWorldChampDashboard&#47;1.png' /> 
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' /></object></div>                
+        <script type='text/javascript'>                    
+        var divElement = document.getElementById('viz1776270312391');                    
+        var vizElement = divElement.getElementsByTagName('object')[0];                    
+        if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
+        else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
+        else { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*1.77)+'px';}                     
+        var scriptElement = document.createElement('script');                    
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+        </script>
+    </div>
+
 </body>
 </html>
