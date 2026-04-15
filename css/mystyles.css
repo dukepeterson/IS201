@@ -1,0 +1,56 @@
+/* Background */
+body {
+    background-color: lightgray;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+/* Style 1 */
+h1 {
+    color: darkblue;
+}
+
+/* Style 2 */
+h2 {
+    color: darkgreen;
+}
+
+/* Style 3 */
+.section {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+/* Style 4 */
+a {
+    color: navy;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.photo-item {
+    text-align: center;
+}
+
+.photo-item img {
+    width: 100%;
+    max-width: 250px;
+}
+
+iframe {
+    display: block;
+    margin: 20px auto;
+}
+
+.nav-links a {
+    margin-right: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
