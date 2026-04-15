@@ -1,2 +1,226 @@
-<!-- java, html, and css all in one file and on one page (for the AI one)-->
-<!-- Use 26.6 in myeducator to help it go live online-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surf Trivia Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: navy;
+        }
+
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            background-color: navy;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: darkblue;
+        }
+
+        .correct {
+            background-color: green !important;
+        }
+
+        .wrong {
+            background-color: red !important;
+        }
+
+        #timer {
+            font-weight: bold;
+            margin: 10px;
+            color: darkred;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="fromScratch.html">⬅ Back to Scratch Page</a>
+
+    <div class="container" id="game">
+        <h1>🏄‍♂️ Surf Trivia Game</h1>
+        <p>Test your surf knowledge!</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Where is the famous surf break 'Pipeline' located?",
+                answers: ["California", "Hawaii", "Australia", "Brazil"],
+                correct: 1
+            },
+            {
+                question: "Which spot is known for the biggest waves in the world?",
+                answers: ["Waikiki", "Nazare", "Byron Bay", "Nosara"],
+                correct: 1
+            },
+            {
+                question: "What is a 'wipeout'?",
+                answers: ["Perfect wave", "Falling off your board", "Catching a wave", "Surf competition"],
+                correct: 1
+            },
+            {
+                question: "Which country is Jeffreys Bay in?",
+                answers: ["USA", "Portugal", "South Africa", "Australia"],
+                correct: 2
+            },
+            {
+                question: "What does 'hang ten' mean?",
+                answers: ["Jumping off the board", "Standing on the back", "All ten toes on the front of the board", "Catching 10 waves"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 10;
+
+        function startGame() {
+            currentQuestion = 0;
+            score = 0;
+
+            document.getElementById("game").innerHTML = `
+                <h1>🏄‍♂️ Surf Trivia Game</h1>
+                <p id="progress"></p>
+                <p id="scoreDisplay">Score: 0</p>
+                <p id="timer">Time: 10</p>
+                <div class="question" id="question"></div>
+                <button class="btn" onclick="checkAnswer(0)" id="btn0"></button>
+                <button class="btn" onclick="checkAnswer(1)" id="btn1"></button>
+                <button class="btn" onclick="checkAnswer(2)" id="btn2"></button>
+                <button class="btn" onclick="checkAnswer(3)" id="btn3"></button>
+            `;
+
+            loadQuestion();
+            updateScore();
+        }
+
+        function startTimer() {
+            timeLeft = 10;
+            document.getElementById("timer").innerText = "Time: " + timeLeft;
+
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").innerText = "Time: " + timeLeft;
+
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    timeUp();
+                }
+            }, 1000);
+        }
+
+        function timeUp() {
+            let correct = questions[currentQuestion].correct;
+
+            document.getElementById("btn" + correct).classList.add("correct");
+
+            for (let i = 0; i < 4; i++) {
+                document.getElementById("btn" + i).disabled = true;
+            }
+
+            setTimeout(nextQuestion, 1000);
+        }
+
+        function loadQuestion() {
+            let q = questions[currentQuestion];
+            document.getElementById("question").innerText = q.question;
+
+            document.getElementById("progress").innerText =
+                "Question " + (currentQuestion + 1) + " / " + questions.length;
+
+            for (let i = 0; i < 4; i++) {
+                let btn = document.getElementById("btn" + i);
+                btn.innerText = q.answers[i];
+                btn.classList.remove("correct", "wrong");
+                btn.disabled = false;
+            }
+
+            startTimer();
+        }
+
+        function updateScore() {
+            document.getElementById("scoreDisplay").innerText = "Score: " + score;
+        }
+
+        function checkAnswer(selected) {
+            clearInterval(timer);
+
+            let correct = questions[currentQuestion].correct;
+
+            for (let i = 0; i < 4; i++) {
+                document.getElementById("btn" + i).disabled = true;
+            }
+
+            if (selected === correct) {
+                document.getElementById("btn" + selected).classList.add("correct");
+                score++;
+                updateScore();
+            } else {
+                document.getElementById("btn" + selected).classList.add("wrong");
+                document.getElementById("btn" + correct).classList.add("correct");
+            }
+
+            setTimeout(nextQuestion, 1000);
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                document.getElementById("game").innerHTML =
+                    "<h2>🏁 Game Over!</h2>" +
+                    "<p>Your score: " + score + " / " + questions.length + "</p>" +
+                    "<p>" + (score === questions.length ? "Perfect score! 🤙" : "Nice try! 🌊") + "</p>" +
+                    "<button onclick='location.reload()'>Play Again</button>";
+            }
+        }
+    </script>
+
+</body>
+</html>
